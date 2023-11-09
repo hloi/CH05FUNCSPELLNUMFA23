@@ -210,6 +210,24 @@ string &getString(size_t num, size_t count, string &numstr, int tdigit) {
     return numstr;
 }
 
+
+
+
+void UserInputOutput() {
+    cout << "Enter a number:" << endl;
+    size_t num;
+    cin >> num;
+    size_t count = 0;
+    string numstr = "";
+    int tdigit = 0;
+    while (num > 0) {
+        numstr = getString(num, count, numstr, tdigit);
+        count++;
+        num = num / 1000;
+    }
+    cout << numstr << endl;
+}
+
 int main() {
     UserInputOutput();
 
@@ -227,24 +245,37 @@ int main() {
     assert(spellDigit(8) == "eight");
     assert(spellDigit(9) == "nine");
 
+    assert(spellTenth(1, 0) == "ten");
     assert(spellTenth(1, 1) == "eleven");
+    assert(spellTenth(1, 2) == "twelve");
+    assert(spellTenth(1, 3) == "thirteen");
+    assert(spellTenth(1, 4) == "fourteen");
+    assert(spellTenth(1, 5) == "fifteen");
+    assert(spellTenth(1, 6) == "sixteen");
+    assert(spellTenth(1, 7) == "seventeen");
+    assert(spellTenth(1, 8) == "eighteen");
+    assert(spellTenth(1, 9) == "nineteen");
+
+    assert(spellTenth(2, 0) == "twenty");
+    assert(spellTenth(3, 0) == "thirty");
+    assert(spellTenth(4, 0) == "forty");
+    assert(spellTenth(5, 0) == "fifty");
+    assert(spellTenth(6, 0) == "sixty");
+    assert(spellTenth(7, 0) == "seventy");
+    assert(spellTenth(8, 0) == "eighty");
+    assert(spellTenth(9, 0) == "ninety");
+
+    assert(spellTenth(2, 1) == "twenty one");
+    assert(spellTenth(3, 2) == "thirty one");
+    assert(spellTenth(4, 3) == "thirty one");
+    assert(spellTenth(5, 4) == "thirty one");
+    assert(spellTenth(6, 5) == "thirty one");
+    assert(spellTenth(7, 6) == "thirty one");
+    assert(spellTenth(8, 7) == "thirty one");
+    assert(spellTenth(9, 8) == "thirty one");
+
+    // 100
 
     return 0;
 }
-
-void UserInputOutput() {
-    cout << "Enter a number:" << endl;
-    size_t num;
-    cin >> num;
-    size_t count = 0;
-    string numstr = "";
-    int tdigit = 0;
-    while (num > 0) {
-        numstr = getString(num, count, numstr, tdigit);
-        count++;
-        num = num / 1000;
-    }
-    cout << numstr << endl;
-}
-
 
